@@ -1,43 +1,12 @@
 .div-container {
-  display: grid;
-  grid-auto-columns: 1fr;
-  grid-template-columns: 1fr 450px;
-  gap: 0px 0px;
   height: 90vh;
   background-image: url("../assets/bg-signup.png");
-  background-repeat: no-repeat;
+  background-position: 30% 95%;
   background-size: cover;
-  position: relative;
-}
-.div-img {
-  background-repeat: no-repeat;
-  background-size: 1800px 1000px;
-  /* background-size: covr; */
-  position: relative;
-  margin-left: 0px;
-  margin-top: -290px;
-  background-image: url("../assets/basket-ball.png");
-}
-
-.div-img img {
-  display: none;
-  top: 0;
-  left: 0;
-  bottom: 200;
-  position: absolute;
-  height: 800px;
-  width: 1200px;
-  /* width: 100%;
-  height: 100%;
-  object-fit: cover; */
 }
 .forShadow {
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2) !important;
   border-radius: 5px;
   background-color: rgba(158, 178, 196, 0.484) !important;
   backdrop-filter: blur(0px) !important;
-}
-
-.div-child {
-  margin-right: 50px;
 }

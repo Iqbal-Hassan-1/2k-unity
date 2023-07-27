@@ -1,6 +1,6 @@
 .navbar {
   background-image: url("../assets/bg-signup.png");
-  background-position: 100px;
+  background-position: 5% 10%;
   height: 80px;
   display: flex;
   justify-content: space-around;
