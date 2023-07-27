@@ -15,7 +15,7 @@ const SignIn = () => {
           <Row>
             <Col className="text-white bg-white mt-5 p-5 forShadow position-relative">
               <Form>
-                <h2 className="text-center">Welcome Back!</h2>
+                <h2 className="text-center fw-bold">Welcome Back!</h2>
                 <h6 className="text-center">You have been missed</h6>
                 <InputField placeholder={"Email"} />
                 <InputField placeholder={"password"} />{" "}
@@ -26,9 +26,9 @@ const SignIn = () => {
                   </Button>
                   <p className="text-center pt-2">Forget to password</p>{" "}
                 </div>{" "}
-                <h5 className="text-center pt-4">
+                <h6 className="text-center pt-4">
                   Don't have an account ? SIGNUP
-                </h5>{" "}
+                </h6>{" "}
               </Form>
             </Col>
           </Row>
