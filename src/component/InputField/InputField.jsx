@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 const InputField = ({ title, placeholder }) => {
   return (
     <>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-2" controlId="formBasicEmail">
         <Form.Label>{title}</Form.Label>
         <Form.Control type="email" placeholder={placeholder && placeholder} />
         {/* <Form.Text className="text-muted">
