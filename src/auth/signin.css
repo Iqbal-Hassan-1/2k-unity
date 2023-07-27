@@ -9,11 +9,27 @@
   background-size: cover;
   position: relative;
 }
+.div-img {
+  background-repeat: no-repeat;
+  background-size: 1800px 1000px;
+  /* background-size: covr; */
+  position: relative;
+  margin-left: 0px;
+  margin-top: -290px;
+  background-image: url("../assets/basket-ball.png");
+}
 
 .div-img img {
-  width: 100%;
+  display: none;
+  top: 0;
+  left: 0;
+  bottom: 200;
+  position: absolute;
+  height: 800px;
+  width: 1200px;
+  /* width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; */
 }
 .forShadow {
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2) !important;
