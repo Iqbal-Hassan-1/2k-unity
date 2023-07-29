@@ -93,3 +93,22 @@
   font-size: 1rem;
   font-weight: 700;
 }
+
+#forId .form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000 !important;
+  background-color: transparent !important;
+  background-clip: padding-box;
+  border: none !important;
+  border-bottom: 1px solid #000 !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0px !important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}

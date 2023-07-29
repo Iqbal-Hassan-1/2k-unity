@@ -95,7 +95,7 @@ function Navbar() {
 
           <li className="nav-item border-right-0">
             <NavLink
-              to="/sign-up"
+              to="/sign-in"
               className="nav-links border-0"
               style={({ isActive }) => ({
                 background: isActive ? "var(--main-color)" : null,

@@ -7,6 +7,7 @@ import SignIn from "./auth/SignIn";
 import About from "./pages/About";
 import Payment from "./pages/Payment";
 import Contact from "./pages/Contact";
+import Signup from "./auth/Signup";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" exact element={<Home />} />
-          <Route path="/sign-up" element={<SignIn />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-up" element={<Signup />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/payment" element={<Payment />} />

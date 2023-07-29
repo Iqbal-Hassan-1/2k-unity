@@ -1,16 +1,16 @@
 import React from "react";
-import "./signin.css";
+import style from "./signin.module.css";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import InputField from "../component/InputField/InputField";
 import { BiRightArrowAlt } from "react-icons/bi";
 import ball from "../assets/basket-ball.png";
 const SignIn = () => {
   return (
-    <Container fluid className="div-container">
+    <Container fluid className={style.divcontainer}>
       <Row>
         <Col
           md={{ offset: 8, span: 3 }}
-          className="text-white bg-white mt-5 p-5 forShadow"
+          className={`text-white bg-white mt-5 p-5 ${style.forShadow}`}
         >
           <Form>
             <h2 className="text-center fw-bold">Welcome Back!</h2>
