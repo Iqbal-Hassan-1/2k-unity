@@ -1,24 +1,28 @@
-.div-payment {
+.divpayment {
   height: 90vh;
   background-image: url("../assets/Payment.png");
   background-position: 20% 70%;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.div-paypal {
+.divpaypal {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.div-paypal img {
+.divpaypal img {
   width: 70%;
   object-fit: cover;
   height: auto;
 }
-.form-check-input:checked {
-  background-color: var(--main-color) !important;
-  border-color: var(--main-color) !important;
-}
+
 .forHead h2 {
   margin-left: 16rem;
+}
+
+.forShadow {
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 5px;
+  background-color: rgba(158, 178, 196, 0.484) !important;
+  backdrop-filter: blur(0px) !important;
 }

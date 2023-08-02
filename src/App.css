@@ -9,6 +9,9 @@
 :root {
   --main-color: #ff8400;
 }
+a {
+  text-decoration: none;
+}
 .home,
 .services,
 .products,
@@ -111,4 +114,12 @@
   appearance: none;
   border-radius: 0px !important;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-check-input:checked {
+  background-color: var(--main-color) !important;
+  border-color: var(--main-color) !important;
+}
+
+.effect span:hover {
+  color: var(--main-color);
 }

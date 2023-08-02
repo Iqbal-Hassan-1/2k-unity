@@ -1,0 +1,24 @@
+.divhome {
+  height: 90vh;
+  background-image: url("../assets/bg-signup1.png");
+  background-position: 30% 99%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.began {
+  background: var(--main-color);
+  width: 15rem;
+  border: none;
+  cursor: pointer;
+  transform: skew(-8deg) !important;
+  padding: 0rem 0.5rem;
+}
+.doller {
+  background: var(--main-color);
+  width: 18rem;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transform: skew(-20deg) !important;
+  padding: 0rem 0rem;
+}

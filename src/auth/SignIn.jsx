@@ -4,6 +4,7 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import InputField from "../component/InputField/InputField";
 import { BiRightArrowAlt } from "react-icons/bi";
 import ball from "../assets/basket-ball.png";
+import { Link } from "react-router-dom";
 const SignIn = () => {
   return (
     <Container fluid className={style.divcontainer}>
@@ -22,9 +23,19 @@ const SignIn = () => {
               <Button variant="primary" size="lg" className="opacity-100">
                 Login to Continue <BiRightArrowAlt size={25} />{" "}
               </Button>
-              <p className="text-center pt-2">Forget to password</p>{" "}
+              <Link
+                to="/forgot-password"
+                className="text-white text-center py-3 effect"
+              >
+                <span> Forgot Password ?</span>
+              </Link>
             </div>{" "}
-            <h6 className="text-center pt-4">Don't have an account ? SIGNUP</h6>{" "}
+            <h6 className="text-center pt-4">
+              Don't have an account ?{" "}
+              <Link to="/sign-up" className="text-white effect">
+                <span>SIGNUP</span>
+              </Link>
+            </h6>{" "}
           </Form>
         </Col>
       </Row>
