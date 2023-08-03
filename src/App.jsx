@@ -9,20 +9,28 @@ import Payment from "./pages/Payment";
 import Contact from "./pages/Contact";
 import Signup from "./auth/Signup";
 import ForgotPassword from "./auth/ForgotPassword";
+import Dashboard from "./pages/Dashboard";
+import Ranking from "./pages/Ranking";
+import DashboardLogin from "./pages/DashboardLogin";
 
 function App() {
   return (
     <>
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/sign-up" element={<Signup />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/" element={<Dashboard />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/sign-up" element={<Signup />} />
+            {/* <Route path="/about" element={<About />} /> */}
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+          </Route>
+          <Route path="/nav-rank" element={<DashboardLogin />}>
+            <Route path="/nav-rank" element={<Ranking />} />
+          </Route>
         </Routes>
       </Router>
     </>

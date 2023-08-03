@@ -1,0 +1,24 @@
+.mainDiv {
+  height: 90vh;
+}
+
+.forImage img {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.forPlayer {
+  /* border-radius: 50%; */
+  position: absolute;
+  top: 20rem;
+  z-index: 2;
+}
+.forPlayer img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 5px solid white;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 50%;
+}

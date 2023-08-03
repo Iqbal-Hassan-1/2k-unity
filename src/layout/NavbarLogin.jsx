@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Button } from "../component/Button";
 import { Link, NavLink } from "react-router-dom";
-import "./Navbar.css";
+import "./navbar-login.css";
 import Dropdown from "../component/Dropdown";
 import kLogo from "../assets/2k-logo.png";
 
-function Navbar() {
+function NavbarLogin() {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
@@ -30,7 +30,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbarlogin">
         <NavLink to="/" className="navbar-logo mb-3" onClick={closeMobileMenu}>
           <img src={kLogo} alt="logo" />
         </NavLink>
@@ -38,50 +38,67 @@ function Navbar() {
         <div className="menu-icon" onClick={handleClick}>
           <i className={click ? "fas fa-times" : "fas fa-bars"} />
         </div>
-        <ul className={click ? "nav-menu active" : "nav-menu"}>
-          <li className="nav-item">
+        <ul className={click ? "nav-menuu active" : "nav-menuu"}>
+          <li className="nav-itemm">
             <NavLink
-              to="/"
-              className="nav-links"
+              to="/nav-rank"
+              className="nav-linkss"
               style={({ isActive }) => ({
-                background: isActive ? "var(--main-color)" : null,
+                background: isActive ? "gray" : null,
+                color: isActive ? "#ffffff" : null,
               })}
               onClick={closeMobileMenu}
             >
-              HOME
+              Ranking
             </NavLink>
           </li>
-          <li className="nav-item">
+          <li className="nav-itemm">
             <NavLink
-              to="/payment"
-              className="nav-links"
+              to="/notification"
+              className="nav-linkss"
               style={({ isActive }) => ({
-                background: isActive ? "var(--main-color)" : null,
+                background: isActive ? "gray" : null,
+                color: isActive ? "#ffffff" : null,
               })}
               onClick={closeMobileMenu}
             >
-              Payment
+              Notification
             </NavLink>
           </li>
-          <li className="nav-item">
+          <li className="nav-itemm">
             <NavLink
-              to="/contact"
-              className="nav-links"
+              to="/chat"
+              className="nav-linkss"
               style={({ isActive }) => ({
-                background: isActive ? "var(--main-color)" : null,
+                background: isActive ? "gray" : null,
+                color: isActive ? "#ffffff" : null,
                 // borderRight: isActive ? "none" : "2px solid white",
               })}
               onClick={closeMobileMenu}
             >
-              Contact
+              Chat
             </NavLink>
           </li>
-          {/* <li className="nav-item">
+          <li className="nav-itemm">
+            <NavLink
+              to="/create-match"
+              className="nav-linkss"
+              style={({ isActive }) => ({
+                background: isActive ? "gray" : null,
+                color: isActive ? "#ffffff" : null,
+                // borderRight: isActive ? "none" : "2px solid white",
+              })}
+              onClick={closeMobileMenu}
+            >
+              Create Match
+            </NavLink>
+          </li>
+          {/* <li className="nav-itemm">
             <NavLink
               to="/about"
-              className="nav-links"
+              className="nav-linkss"
               style={({ isActive }) => ({
-                background: isActive ? "var(--main-color)" : null,
+                background: isActive ? "gray" : null,
               })}
               onClick={closeMobileMenu}
             >
@@ -89,16 +106,17 @@ function Navbar() {
             </NavLink>
           </li> */}
 
-          <li className="nav-item border-right-0">
+          <li className="nav-itemm border-right-0">
             <NavLink
               to="/sign-in"
-              className="nav-links border-0"
+              className="nav-linkss border-0"
               style={({ isActive }) => ({
-                background: isActive ? "var(--main-color)" : null,
+                background: isActive ? "gray" : null,
+                color: isActive ? "#ffffff" : null,
               })}
               onClick={closeMobileMenu}
             >
-              SIGN IN
+              Logout
             </NavLink>
           </li>
         </ul>
@@ -108,4 +126,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavbarLogin;

@@ -1,0 +1,38 @@
+.navbarlogin {
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1rem;
+}
+.nav-menuu {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  width: 70vw;
+  justify-content: end;
+  margin-right: 2rem;
+}
+.nav-itemm {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.nav-linkss {
+  color: #000;
+  text-decoration: none;
+  padding: 0.5rem 3rem;
+  font-weight: 600;
+  transform: skew(-10deg);
+}
+
+.nav-linkss:hover {
+  background: gray;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transform: skew(-10deg);
+}
