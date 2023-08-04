@@ -123,3 +123,6 @@ a {
 .effect span:hover {
   color: var(--main-color);
 }
+.user {
+  font-size: 14px;
+}
