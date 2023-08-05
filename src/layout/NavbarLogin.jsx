@@ -81,7 +81,7 @@ function NavbarLogin() {
           </li>
           <li className="nav-itemm">
             <NavLink
-              to="/create-match"
+              to="/nav-rank/create-match"
               className="nav-linkss"
               style={({ isActive }) => ({
                 background: isActive ? "gray" : null,

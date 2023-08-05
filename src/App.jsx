@@ -12,6 +12,7 @@ import ForgotPassword from "./auth/ForgotPassword";
 import Dashboard from "./pages/Dashboard";
 import Ranking from "./pages/Ranking";
 import DashboardLogin from "./pages/DashboardLogin";
+import CreateMatch from "./pages/CreateMatch";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           </Route>
           <Route path="/nav-rank" element={<DashboardLogin />}>
             <Route path="/nav-rank" element={<Ranking />} />
+            <Route path="/nav-rank/create-match" element={<CreateMatch />} />
           </Route>
         </Routes>
       </Router>

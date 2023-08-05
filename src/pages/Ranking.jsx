@@ -76,7 +76,7 @@ const Ranking = () => {
           </Row>
           <Row className="px-1">
             <Col>
-              <p className="mb-0 text-secondary">Previous Upload</p>
+              <p className="mb-0 text-secondary fw-bold">Previous Upload</p>
               <div className="d-flex gap-5">
                 <img
                   src={player}
@@ -119,8 +119,10 @@ const Ranking = () => {
           md={{ offset: 1, span: 2 }}
         >
           <button className={`p-2 ${style.matchButton}`}>Setup a Match</button>
-          <button className="p-2">Previous Match</button>
-          <button className="p-2">Upload Record</button>
+          <button className={`p-2 bg-primary  ${style.prevButton}`}>
+            Previous Match
+          </button>
+          <button className={`p-2 ${style.uploadButton}`}>Upload Record</button>
         </Col>
       </Row>
     </Container>
