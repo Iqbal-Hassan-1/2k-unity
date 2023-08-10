@@ -1,11 +1,11 @@
 import React from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { BiRightArrowAlt } from "react-icons/bi";
-import style from "./creatematch.module.css";
+import style from "./createteam.module.css";
 import InputFieldWhite from "../component/InputField/InputFieldWhite";
 import Select from "../component/Select/Select";
 
-const CreateMatch = () => {
+const CreateTeam = () => {
   const apiOptions = [
     { value: "value1", label: "Select palyer name" },
     { value: "value2", label: "Option 2" },
@@ -17,13 +17,13 @@ const CreateMatch = () => {
       <Row>
         <Col
           xs={{ offset: 2, span: 8 }}
-          sm={{ offset: 3, span: 6 }}
-          md={{ offset: 1, span: 6 }}
-          lg={{ offset: 1, span: 3 }}
+          sm={{ offset: 2, span: 6 }}
+          md={{ offset: 6, span: 6 }}
+          lg={{ offset: 8, span: 3 }}
           className={`text-white bg-white mt-2 px-5 py-3 ${style.forShadow}`}
         >
           <Form>
-            <h2 className="text-center fw-bold mb-0">Create Match</h2>
+            <h4 className="text-center fw-bold mb-0">Create your team</h4>
             <InputFieldWhite
               type={"email"}
               placeholder={"Team Name"}
@@ -93,4 +93,4 @@ const CreateMatch = () => {
   );
 };
 
-export default CreateMatch;
+export default CreateTeam;

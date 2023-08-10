@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "../component/Button";
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
-import Dropdown from "../component/Dropdown";
+
 import kLogo from "../assets/2k-logo.png";
 
 function Navbar() {

@@ -1,36 +1,81 @@
-.dropdown-menu {
-  background: red;
-  width: 200px;
+.dropdown-menuu {
+  width: 300px;
   position: absolute;
-  top: 80px;
+  top: 50px;
+  padding-left: 0rem;
+  margin-right: 30px;
   list-style: none;
   text-align: start;
+  z-index: 3;
 }
 
-.dropdown-menu li {
-  background: #1888ff;
+.dropdown-menuu li {
+  background: #eceff6;
+  color: #3b3b3b;
+  border-bottom: 1px solid gray;
   cursor: pointer;
 }
 
-.dropdown-menu li:hover {
-  background: #5cabff;
+.dropdown-menuu li:hover {
+  background: #eceff6;
 }
 
-.dropdown-menu.clicked {
+.dropdown-menuu.clicked {
   display: none;
 }
 
-.dropdown-link {
-  display: block;
+.dropdown-linkk {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 50px 1fr;
+  gap: 0.5rem;
+  word-break: break-all;
   height: 100%;
   width: 100%;
   text-decoration: none;
-  color: #fff;
+  color: #3b3b3b;
   padding: 16px;
 }
 
+/* //for notification circle  */
+.forCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: whitesmoke;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.badge-icon-container {
+  position: relative;
+  display: inline-block;
+  color: rgb(91, 199, 234);
+  margin-right: 0px; /* Adjust as needed */
+}
+
+.notification-icon {
+  font-size: 24px; /* Adjust as needed */
+}
+
+.badge-dot {
+  position: absolute;
+  top: -10px; /* Adjust vertically */
+  left: -10px; /* Adjust horizontally */
+  background-color: red; /* Badge color */
+  color: white;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
 @media screen and (max-width: 960px) {
-  .fa-caret-down {
+  .fa-caret-downn {
     display: none;
   }
 }

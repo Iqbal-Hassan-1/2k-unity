@@ -16,7 +16,7 @@ const Signup = () => {
       <Row className="d-flex justify-content-center gap-5">
         <Col
           md={3}
-          className={`text-white mt-2 p-4 ${
+          className={`text-white mt-4 p-4 ${
             activeStep === 0 ? style.activeForm : style.inactiveForm
           } ${style.forbgshadow}`}
         >

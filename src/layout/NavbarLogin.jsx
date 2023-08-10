@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Button } from "../component/Button";
-import { Link, NavLink } from "react-router-dom";
-import "./navbar-login.css";
-import Dropdown from "../component/Dropdown";
+import { NavLink } from "react-router-dom";
+import style from "./navbarlogin.module.css";
 import kLogo from "../assets/2k-logo.png";
+import { MdClose, MdMenu, MdOutlineKeyboardArrowDown } from "react-icons/md";
+
+import Dropdown from "../component/Dropdown";
 
 function NavbarLogin() {
   const [click, setClick] = useState(false);
@@ -14,7 +15,7 @@ function NavbarLogin() {
 
   const onMouseEnter = () => {
     if (window.innerWidth < 960) {
-      setDropdown(false);
+      setDropdown(true);
     } else {
       setDropdown(true);
     }
@@ -30,96 +31,84 @@ function NavbarLogin() {
 
   return (
     <>
-      <nav className="navbarlogin">
-        <NavLink to="/" className="navbar-logo mb-3" onClick={closeMobileMenu}>
-          <img src={kLogo} alt="logo" />
+      <nav className={style.navbarlogin}>
+        <NavLink
+          to="/"
+          className={`mb-3 ${style.navbarLogo}`}
+          onClick={closeMobileMenu}
+        >
+          {/* <img src={kLogo} alt="logo" /> */}
         </NavLink>
 
-        <div className="menu-icon" onClick={handleClick}>
-          <i className={click ? "fas fa-times" : "fas fa-bars"} />
+        <div className={style.menuIcon} onClick={handleClick}>
+          {click ? (
+            <MdClose style={{ color: "black" }} />
+          ) : (
+            <MdMenu style={{ color: "black" }} />
+          )}
         </div>
-        <ul className={click ? "nav-menuu active" : "nav-menuu"}>
-          <li className="nav-itemm">
+        <ul
+          className={
+            click ? `${style.navMenuu} ${style.activee}` : style.navMenuu
+          }
+        >
+          <li className={style.navItemm}>
             <NavLink
-              to="/nav-rank"
-              className="nav-linkss"
-              style={({ isActive }) => ({
-                background: isActive ? "gray" : null,
-                color: isActive ? "#ffffff" : null,
-              })}
+              to="/nav-rank/ranking"
+              className={style.navLinkss}
               onClick={closeMobileMenu}
             >
               Ranking
             </NavLink>
           </li>
-          <li className="nav-itemm">
+          <li
+            className={style.navItemm}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+          >
             <NavLink
-              to="/notification"
-              className="nav-linkss"
-              style={({ isActive }) => ({
-                background: isActive ? "gray" : null,
-                color: isActive ? "#ffffff" : null,
-              })}
+              to="/nav-rank/notification"
+              className={
+                dropdown
+                  ? `${style.navLinkss} ${style.activee}`
+                  : style.navLinkss
+              }
               onClick={closeMobileMenu}
             >
-              Notification
+              Notification <MdOutlineKeyboardArrowDown size={25} />
             </NavLink>
+            {dropdown && <Dropdown />}
           </li>
-          <li className="nav-itemm">
+          <li className={style.navItemm}>
             <NavLink
-              to="/chat"
-              className="nav-linkss"
-              style={({ isActive }) => ({
-                background: isActive ? "gray" : null,
-                color: isActive ? "#ffffff" : null,
-                // borderRight: isActive ? "none" : "2px solid white",
-              })}
+              to="/nav-rank/chat"
+              className={style.navLinkss}
               onClick={closeMobileMenu}
             >
               Chat
             </NavLink>
           </li>
-          <li className="nav-itemm">
+          <li className={style.navItemm}>
             <NavLink
-              to="/nav-rank/create-match"
-              className="nav-linkss"
-              style={({ isActive }) => ({
-                background: isActive ? "gray" : null,
-                color: isActive ? "#ffffff" : null,
-                // borderRight: isActive ? "none" : "2px solid white",
-              })}
+              to="create-match"
+              className={style.navLinkss}
               onClick={closeMobileMenu}
             >
               Create Match
             </NavLink>
           </li>
-          {/* <li className="nav-itemm">
-            <NavLink
-              to="/about"
-              className="nav-linkss"
-              style={({ isActive }) => ({
-                background: isActive ? "gray" : null,
-              })}
-              onClick={closeMobileMenu}
-            >
-              About
-            </NavLink>
-          </li> */}
 
-          <li className="nav-itemm border-right-0">
+          <li className={`border-right-0 ${style.navItemm}`}>
             <NavLink
               to="/sign-in"
-              className="nav-linkss border-0"
-              style={({ isActive }) => ({
-                background: isActive ? "gray" : null,
-                color: isActive ? "#ffffff" : null,
-              })}
+              className={`border-0 ${style.navLinkss}`}
               onClick={closeMobileMenu}
             >
               Logout
             </NavLink>
           </li>
         </ul>
+
         {/* <Button /> */}
       </nav>
     </>

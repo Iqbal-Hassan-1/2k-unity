@@ -55,3 +55,5 @@
   background-color: rgba(252, 50, 10, 0.747);
   color: #ffff;
 }
+@media screen and (max-width: 960px) {
+}

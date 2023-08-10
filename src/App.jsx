@@ -13,6 +13,8 @@ import Dashboard from "./pages/Dashboard";
 import Ranking from "./pages/Ranking";
 import DashboardLogin from "./pages/DashboardLogin";
 import CreateMatch from "./pages/CreateMatch";
+import CreateTeam from "./pages/CreateTeam";
+import Chat from "./component/chat/Chat";
 
 function App() {
   return (
@@ -30,8 +32,10 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
           </Route>
           <Route path="/nav-rank" element={<DashboardLogin />}>
-            <Route path="/nav-rank" element={<Ranking />} />
-            <Route path="/nav-rank/create-match" element={<CreateMatch />} />
+            <Route path="ranking" element={<Ranking />} />
+            <Route path="create-match" element={<CreateMatch />} />
+            <Route path="create-team" element={<CreateTeam />} />
+            <Route path="chat" element={<Chat />} />
           </Route>
         </Routes>
       </Router>

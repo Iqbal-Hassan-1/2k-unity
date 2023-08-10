@@ -7,7 +7,8 @@
   font-family: "Montserrat", sans-serif;
 }
 :root {
-  --main-color: #ff8400;
+  --main-color: #ffa100;
+  --secondary-color: #237cfd;
 }
 a {
   text-decoration: none;
@@ -125,4 +126,7 @@ a {
 }
 .user {
   font-size: 14px;
+}
+.foruploadbtn {
+  background-color: var(--secondary-color) !important;
 }

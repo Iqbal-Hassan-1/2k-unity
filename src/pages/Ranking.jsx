@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import style from "./rank.module.css";
 import basketBall from "../assets/kit.png";
 import player from "../assets/player.png";
+import ChatIcon from "../component/chat/ChatIcon";
+import UploadRecord from "../component/UploadRecord";
 
 const Ranking = () => {
+  const [show, setShow] = useState(false);
+
   return (
     <Container fluid className={style.mainDiv}>
       <Row>
@@ -122,9 +126,18 @@ const Ranking = () => {
           <button className={`p-2 bg-primary  ${style.prevButton}`}>
             Previous Match
           </button>
-          <button className={`p-2 ${style.uploadButton}`}>Upload Record</button>
+          <button
+            className={`p-2 ${style.uploadButton}`}
+            type="button"
+            onClick={() => setShow(true)}
+          >
+            Upload Record
+          </button>
         </Col>
       </Row>
+      {show && <UploadRecord show={show} setShow={setShow} />}
+
+      <ChatIcon />
     </Container>
   );
 };

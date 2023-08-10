@@ -1,0 +1,35 @@
+.divcontainer {
+  height: 90vh;
+  background-image: url("../assets/bg-create-match.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  background-size: 1100px;
+}
+
+.forShadow {
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 5px;
+  background-color: #e9edf8 !important;
+  backdrop-filter: blur(0px) !important;
+  color: #000 !important;
+}
+
+.forShadow h2 {
+  color: var(--main-color);
+}
+.amountLabel {
+  padding-left: 0.9rem;
+  font-size: 0.9rem;
+}
+.amountInput {
+  border: none;
+  padding: 1rem;
+}
+.amountInput:focus-visible {
+  outline: none;
+}
+.amountInput::placeholder {
+  text-align: center;
+  font-size: 1.2rem;
+}

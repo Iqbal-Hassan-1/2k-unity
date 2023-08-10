@@ -1,0 +1,128 @@
+/* .maindiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  width: 50%;
+  min-height: 90vh;
+  background-color: #ffff;
+  color: #000;
+} */
+.maindiv {
+  position: absolute;
+  width: 30%;
+  bottom: 0;
+  z-index: 5;
+  background-color: white;
+  /* border: 1px solid black; */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  right: 6rem;
+  /* bottom: 5rem; */
+}
+
+.mainclass {
+  padding: 0px 10px;
+  height: 60vh;
+  margin: 10vh 0 10vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+/* for form  */
+.formclass {
+  height: 10vh;
+  position: absolute;
+  bottom: 0;
+  width: 95%;
+  max-width: 728px;
+  display: block;
+  font-size: 1.5rem;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  /* border: 1px solid #ccc; */
+  background-color: rgb(226, 224, 224);
+  border-radius: 4px;
+  padding: 6px;
+}
+
+.inputclass {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  background-color: rgb(226, 224, 224);
+  color: #000;
+  padding: 5px;
+}
+.inputclass::placeholder {
+  color: gray;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0rem 1.5rem;
+}
+
+.buttonclass {
+  background: none;
+  border: none;
+  margin-right: 1rem;
+  color: var(--main-color);
+  cursor: pointer;
+}
+
+.buttonclass:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.message {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.pclass {
+  /* max-width: fit-content; */
+  /* width: 80%; */
+  max-width: 80%;
+  margin-bottom: 12px;
+  line-height: 24px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  position: relative;
+  color: #000;
+  text-align: start;
+  word-wrap: break-word;
+}
+.sent {
+  flex-direction: row-reverse;
+}
+
+.sent p {
+  color: white;
+  background: #0b93f6;
+  /* align-self: flex-end; */
+}
+.received p {
+  background: #e5e5ea;
+  color: black;
+}
+.imgclass {
+  width: 60px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 2px 5px;
+}
+/* for scrollbar  */
+.mainclass::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.mainclass::-webkit-scrollbar-track {
+  background: #ffff;
+}
+
+.mainclass::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+}

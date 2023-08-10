@@ -1,0 +1,27 @@
+.divForgot {
+  height: 90vh;
+  background-image: url("../assets/forgot-bg.png");
+  background-position: 20% 95%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.forShadow {
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 5px;
+  background-color: rgba(158, 178, 196, 0.484) !important;
+  backdrop-filter: blur(0px) !important;
+}
+
+.forShadow h3 {
+  color: var(--main-color);
+}
+.forLabel {
+  font-size: 0.9rem;
+  text-align: center;
+}
+.forInput:focus-visible {
+  outline: none;
+}
+.forInput::placeholder {
+  padding: 1.5rem;
+}
