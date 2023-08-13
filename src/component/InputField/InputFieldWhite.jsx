@@ -1,14 +1,24 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import style from "./inputwhite.module.css";
-const InputFieldWhite = ({ title, placeholder, type, className }) => {
+const InputFieldWhite = ({
+  title,
+  placeholder,
+  type,
+  className,
+  value,
+  onChange,
+  name,
+}) => {
   return (
-    <Form.Group className={className} controlId="formBasicEmail">
+    <Form.Group className={className} controlId={`formBasic${name}`}>
       <Form.Label>{title}</Form.Label>
       <Form.Control
         type={type}
         placeholder={placeholder && placeholder}
-        className={style.forInput}
+        className={style.FieldWhiteInput}
+        value={value}
+        onChange={(e) => onChange(e, name)}
       />
       {/* <Form.Text className="text-muted">
           We'll never share your email with anyone else.

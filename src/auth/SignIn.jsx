@@ -5,13 +5,23 @@ import InputField from "../component/InputField/InputField";
 import { BiRightArrowAlt } from "react-icons/bi";
 import ball from "../assets/basket-ball.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(email, password);
+    try {
+      const formData = { email, password };
+      const response = await axios.post(
+        "https://nutty-dove-earmuffs.cyclic.app/api/auth/login",
+        formData
+      );
+      console.log("Response:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
     setEmail("");
     setPassword("");
   };

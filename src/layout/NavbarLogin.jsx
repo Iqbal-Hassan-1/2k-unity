@@ -33,7 +33,7 @@ function NavbarLogin() {
     <>
       <nav className={style.navbarlogin}>
         <NavLink
-          to="/"
+          to="ranking"
           className={`mb-3 ${style.navbarLogo}`}
           onClick={closeMobileMenu}
         >
@@ -54,7 +54,7 @@ function NavbarLogin() {
         >
           <li className={style.navItemm}>
             <NavLink
-              to="/nav-rank/ranking"
+              to="/ranking"
               className={style.navLinkss}
               onClick={closeMobileMenu}
             >
@@ -67,7 +67,7 @@ function NavbarLogin() {
             onMouseLeave={onMouseLeave}
           >
             <NavLink
-              to="/nav-rank/notification"
+              to="notification"
               className={
                 dropdown
                   ? `${style.navLinkss} ${style.activee}`
