@@ -19,6 +19,7 @@ const InputFieldWhite = ({
         className={style.FieldWhiteInput}
         value={value}
         onChange={(e) => onChange(e, name)}
+        autoComplete="off"
       />
       {/* <Form.Text className="text-muted">
           We'll never share your email with anyone else.

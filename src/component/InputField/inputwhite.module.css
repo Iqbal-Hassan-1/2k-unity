@@ -16,10 +16,10 @@
   border-radius: 0px !important;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.forInput:focus {
+.FieldWhiteInput:focus {
   box-shadow: none !important;
 }
-.forInput::placeholder {
+.FieldWhiteInput::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #000 !important;
   opacity: 1; /* Firefox */

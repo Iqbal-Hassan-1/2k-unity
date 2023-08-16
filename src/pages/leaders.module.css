@@ -1,0 +1,76 @@
+.divleader {
+  height: 90vh;
+  background-image: url("../assets/contact-bg.png");
+  background-position: 30% 99%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.tableclass thead th {
+  background-color: #36a7ea;
+  border-bottom: none;
+  text-align: center;
+  color: white;
+}
+.tableclass tbody td {
+  background-color: #78a6d4;
+  color: #000;
+  text-align: center;
+  border-bottom: 2px solid #13338a;
+  padding: 0.8rem 0rem;
+  font-weight: 600;
+}
+.classInput {
+  border-radius: 0px;
+}
+.divSearch button {
+  width: 100% !important;
+  background-color: var(--main-color);
+  padding: 0.5rem;
+}
+.divWin button {
+  width: 100% !important;
+  background-color: #36a7ea !important;
+  padding: 0.5rem;
+}
+.leaderColor {
+  position: relative;
+  display: inline-block;
+  color: white;
+  z-index: 9;
+}
+
+.leaderColor::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20px; /* Adjust the distance from the original position */
+  width: calc(100% + 40px); /* Adjust the width to cover the text width */
+  height: 100%;
+  background-color: var(--main-color);
+  color: white !important;
+  /* Adjust the background color */
+  transform: skew(-15deg); /* Adjust the skew angle as needed */
+  transform-origin: 0 0; /* Set the origin of skew */
+  z-index: -1; /* Place behind the text */
+}
+.recColor {
+  position: relative;
+  display: inline-block;
+  color: white;
+  font-weight: 700;
+  z-index: 9;
+}
+
+.recColor::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10px; /* Adjust the distance from the original position */
+  width: calc(100% + 20px); /* Adjust the width to cover the text width */
+  height: 100%;
+  background-color: #36a7ea;
+  /* Adjust the background color */
+  transform: skew(-15deg); /* Adjust the skew angle as needed */
+  transform-origin: 0 0; /* Set the origin of skew */
+  z-index: -1; /* Place behind the text */
+}

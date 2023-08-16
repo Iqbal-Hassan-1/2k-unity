@@ -47,9 +47,39 @@ const Signup = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = (num) => {
-    console.log(num);
     setActiveStep(num);
   };
+  const isFormIncomplete =
+    !formData.email ||
+    !formData.username ||
+    !formData.password ||
+    !formData.first_name ||
+    !formData.last_name ||
+    !formData.gender ||
+    !formData.dob ||
+    !formData.country ||
+    !formData.gamer_tag ||
+    !formData.game_mod ||
+    !formData.archtype ||
+    !formData.position ||
+    !formData.height ||
+    !formData.stream;
+  const isNextFirst =
+    !formData.first_name ||
+    !formData.last_name ||
+    !formData.gender ||
+    !formData.dob ||
+    !formData.country ||
+    !formData.username;
+  const isNextSec =
+    !formData.gamer_tag ||
+    !formData.game_mod ||
+    !formData.archtype ||
+    !formData.position ||
+    // !formData.height ||
+    !formData.height;
+  const isSignup = !formData.email || !formData.stream || !formData.password;
+
   return (
     <Container fluid className={style.signupdiv}>
       <Form onSubmit={handleSubmit}>
@@ -112,77 +142,85 @@ const Signup = () => {
               onChange={handleChange}
               value={formData.username}
             />{" "}
-            <div className="d-grid gap-2 pt-3 opacity-100">
+            <div
+              className={`d-grid gap-2 pt-3 opacity-100 ${
+                isNextFirst ? "not-allowed-cursor" : ""
+              }`}
+            >
               {" "}
               <Button
                 variant="primary"
                 size="lg"
+                disabled={isNextFirst}
                 className="opacity-100"
                 onClick={() => handleNext(1)}
               >
                 Next <BiRightArrowAlt size={25} />{" "}
               </Button>
-            </div>{" "}
+            </div>
           </Col>
           <Col
             md={3}
-            className={`text-white mt-2 p-4 ${
+            className={`text-white mt-4 p-4 ${
               activeStep === 1 ? style.activeForm : style.inactiveForm
             } ${style.forbgshadow}`}
           >
-            <Form>
-              <h3 className="text-center fw-bold">STEP 2</h3>
-              <InputFieldWhite
-                placeholder={"Gamer tag"}
-                name="gamer_tag"
-                type="text"
-                onChange={handleChange}
-                value={formData.gamer_tag}
-              />
-              <InputFieldWhite placeholder={"System"} />{" "}
-              <InputFieldWhite
-                placeholder={"Game Mode"}
-                name="game_mod"
-                value={formData.game_mod}
-                onChange={handleChange}
-              />
-              <InputFieldWhite
-                placeholder={"Archetype"}
-                type="text"
-                name="archtype"
-                value={formData.archtype}
-                onChange={handleChange}
-              />{" "}
-              <InputFieldWhite
-                placeholder={"Position"}
-                type="text"
-                name="position"
-                value={formData.position}
-                onChange={handleChange}
-              />
-              <InputFieldWhite
-                placeholder={"Height"}
-                type="text"
-                name="height"
-                value={formData.height}
-                onChange={handleChange}
-              />{" "}
-              <div className="d-grid gap-2 pt-3 opacity-100">
-                {" "}
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="opacity-100"
-                  onClick={() => handleNext(2)}
-                >
-                  Next <BiRightArrowAlt size={25} />{" "}
-                </Button>
-              </div>{" "}
-            </Form>
+            <h3 className="text-center fw-bold">STEP 2</h3>
+            <InputFieldWhite
+              placeholder={"Gamer tag"}
+              name="gamer_tag"
+              type="text"
+              onChange={handleChange}
+              value={formData.gamer_tag}
+            />
+            <InputFieldWhite placeholder={"System"} />{" "}
+            <InputFieldWhite
+              placeholder={"Game Mode"}
+              name="game_mod"
+              value={formData.game_mod}
+              onChange={handleChange}
+            />
+            <InputFieldWhite
+              placeholder={"Archetype"}
+              type="text"
+              name="archtype"
+              value={formData.archtype}
+              onChange={handleChange}
+            />{" "}
+            <InputFieldWhite
+              placeholder={"Position"}
+              type="text"
+              name="position"
+              value={formData.position}
+              onChange={handleChange}
+            />
+            <InputFieldWhite
+              placeholder={"Height"}
+              type="text"
+              name="height"
+              value={formData.height}
+              onChange={handleChange}
+            />{" "}
+            <div
+              className={`d-grid gap-2 pt-3 opacity-100 ${
+                isNextSec ? "not-allowed-cursor" : ""
+              }`}
+            >
+              {" "}
+              <Button
+                variant="primary"
+                size="lg"
+                disabled={isNextSec}
+                className="opacity-100"
+                onClick={() => handleNext(2)}
+              >
+                Next <BiRightArrowAlt size={25} />{" "}
+              </Button>
+            </div>
           </Col>
           <Col
             md={3}
-            className={`text-white mt-2 p-4 ${
+            className={`text-white mt-4 p-4 ${
               activeStep === 2 ? style.activeForm : style.inactiveForm
             } ${style.forbgshadow}`}
           >
@@ -209,13 +247,18 @@ const Signup = () => {
               value={formData.stream}
               onChange={handleChange}
             />{" "}
-            <div className="d-grid gap-2 pt-3 opacity-100">
+            <div
+              className={`d-grid gap-2 pt-3 opacity-100 ${
+                isSignup ? "not-allowed-cursor" : ""
+              }`}
+            >
               {" "}
               <Button
                 variant="primary"
                 size="lg"
                 className="opacity-100"
                 type="submit"
+                disabled={isSignup}
                 // onClick={() => handleNext(0)}
               >
                 SIGNUP

@@ -23,7 +23,7 @@ const ChatIcon = () => {
           </span>
         </div>
       </div>
-      {isChat && <Chat />}
+      {isChat && <Chat setIsChat={setIsChat} />}
     </>
   );
 };

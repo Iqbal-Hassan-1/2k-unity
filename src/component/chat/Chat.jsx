@@ -1,12 +1,34 @@
-import React, { useRef, useState } from "react";
-import image from "../../assets/basket-ball.png";
+import React, { useEffect, useRef, useState } from "react";
 import style from "./chat.module.css";
-import { GrSend } from "react-icons/gr";
 import { BsFillSendFill } from "react-icons/bs";
+import { IoMdClose } from "react-icons/io";
+import axios from "axios";
+import { BASE_URL } from "../../constant";
+
+// INSIDE CHAT FUNCTION START FROM HERE
 function ChatRoom() {
   const dummy = useRef();
   const [formValue, setFormValue] = useState("");
   const [messages, setMessages] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const userToken = localStorage.getItem("token");
+      console.log(userToken);
+      try {
+        const response = await axios.get(`${BASE_URL}conversations`, {
+          headers: {
+            Authorization: userToken,
+          },
+        });
+        // set(response.data.leadership);
+        console.log("message", response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const sendMessage = (data) => {
     data.preventDefault();
@@ -54,7 +76,7 @@ function ChatRoom() {
     </>
   );
 }
-
+// INSIDE CHAT MESSAGE FUNCTION START FROM HERE
 function ChatMessage(props) {
   const { msg, id } = props.message;
   const isSentMessage = id % 2 === 0; // Example condition to differentiate sent and received messages
@@ -73,14 +95,19 @@ function ChatMessage(props) {
     </div>
   );
 }
-const Chat = () => {
+const Chat = ({ setIsChat }) => {
   return (
     <div className={style.maindiv}>
       <header
-        className="text-center fs-4 fw-bold py-2 border-bottom border-gray border-4"
+        className=" d-flex justify-content-between px-3 align-items-center  fs-4 fw-bold py-2 border-bottom border-gray border-4"
         style={{ color: "var(--main-color)" }}
+        onClick={() => setIsChat(false)}
       >
-        The Night Club
+        The Night Club{" "}
+        <IoMdClose
+          style={{ cursor: "pointer" }}
+          onClick={() => setIsChat(false)}
+        />
       </header>
       <ChatRoom />
     </div>

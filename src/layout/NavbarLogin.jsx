@@ -5,10 +5,16 @@ import kLogo from "../assets/2k-logo.png";
 import { MdClose, MdMenu, MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 import Dropdown from "../component/Dropdown";
+import { useAuth } from "../context/AuthContext";
 
 function NavbarLogin() {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const { logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+  };
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -33,7 +39,7 @@ function NavbarLogin() {
     <>
       <nav className={style.navbarlogin}>
         <NavLink
-          to="ranking"
+          to="/nav-rank"
           className={`mb-3 ${style.navbarLogo}`}
           onClick={closeMobileMenu}
         >
@@ -54,7 +60,7 @@ function NavbarLogin() {
         >
           <li className={style.navItemm}>
             <NavLink
-              to="/ranking"
+              to="/nav-rank/ranking"
               className={style.navLinkss}
               onClick={closeMobileMenu}
             >
@@ -67,7 +73,7 @@ function NavbarLogin() {
             onMouseLeave={onMouseLeave}
           >
             <NavLink
-              to="notification"
+              to="/nav-rank/ranking"
               className={
                 dropdown
                   ? `${style.navLinkss} ${style.activee}`
@@ -79,7 +85,7 @@ function NavbarLogin() {
             </NavLink>
             {dropdown && <Dropdown />}
           </li>
-          <li className={style.navItemm}>
+          {/* <li className={style.navItemm}>
             <NavLink
               to="/nav-rank/chat"
               className={style.navLinkss}
@@ -87,7 +93,7 @@ function NavbarLogin() {
             >
               Chat
             </NavLink>
-          </li>
+          </li> */}
           <li className={style.navItemm}>
             <NavLink
               to="create-match"
@@ -98,10 +104,13 @@ function NavbarLogin() {
             </NavLink>
           </li>
 
-          <li className={`border-right-0 ${style.navItemm}`}>
+          <li
+            className={`border-right-0 ${style.navItemm}`}
+            onClick={handleLogout}
+          >
             <NavLink
-              to="/sign-in"
-              className={`border-0 ${style.navLinkss}`}
+              // to="/sign-in"
+              className={`border-0 ${style.navLogout}`}
               onClick={closeMobileMenu}
             >
               Logout

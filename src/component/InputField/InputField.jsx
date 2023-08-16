@@ -9,7 +9,7 @@ const InputField = ({ title, placeholder, type, value, setValue }) => {
         <input
           type={type && type}
           placeholder={placeholder && placeholder}
-          className={style.forInput}
+          className={style.forInputField}
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />

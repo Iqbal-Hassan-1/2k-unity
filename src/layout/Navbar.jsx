@@ -65,6 +65,19 @@ function Navbar() {
           </li>
           <li className="nav-item">
             <NavLink
+              to="/leaders"
+              className="nav-links"
+              style={({ isActive }) => ({
+                background: isActive ? "var(--main-color)" : null,
+                // borderRight: isActive ? "none" : "2px solid white",
+              })}
+              onClick={closeMobileMenu}
+            >
+              Leaders
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
               to="/contact"
               className="nav-links"
               style={({ isActive }) => ({

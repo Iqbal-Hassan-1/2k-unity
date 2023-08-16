@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import style from "./rank.module.css";
 import basketBall from "../assets/kit.png";
 import player from "../assets/player.png";
 import ChatIcon from "../component/chat/ChatIcon";
 import UploadRecord from "../component/UploadRecord";
+import { useAuth } from "../context/AuthContext";
 
 const Ranking = () => {
+  const { user } = useAuth();
+  console.log(user);
   const [show, setShow] = useState(false);
 
   return (
@@ -20,7 +23,7 @@ const Ranking = () => {
         </Col>
         <Col md={{ offset: 3, span: 6 }} className="pt-1 ">
           <div className="d-flex align-items-center gap-3">
-            <h4 className="fw-bold">Daily Gamer</h4>
+            <h4 className="fw-bold">{user?.username}</h4>
             <button className="px-4 py-2 bg-primary text-white border-0 fw-bold user">
               Message User
             </button>
@@ -40,9 +43,9 @@ const Ranking = () => {
             </Col>
             <Col md={4}>
               {" "}
-              <p className="mb-0">Athletic Finisher</p>
-              <p className="mb-0">6.6</p>
-              <p className="mb-0">Shooting Guard</p>
+              <p className="mb-0">{user?.archtype}</p>
+              <p className="mb-0">{user?.height}</p>
+              <p className="mb-0">{user?.position}</p>
             </Col>
           </Row>
           <Row className="d-flex gap-2 px-1 pt-1">
@@ -138,6 +141,8 @@ const Ranking = () => {
       {show && <UploadRecord show={show} setShow={setShow} />}
 
       <ChatIcon />
+
+      {/* <ChatIcon /> */}
     </Container>
   );
 };
