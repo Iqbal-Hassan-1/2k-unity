@@ -12,6 +12,7 @@ const Signup = () => {
     email: "",
     username: "",
     password: "",
+    confirmPassword: "",
     first_name: "",
     last_name: "",
     gender: "",
@@ -37,6 +38,9 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      return toast.error("Password Not Match");
+    }
     setIsLoading(true);
     try {
       const response = await axios.post(
@@ -248,7 +252,13 @@ const Signup = () => {
               value={formData.password}
               onChange={handleChange}
             />{" "}
-            <InputFieldWhite placeholder={"Confirm Password"} />
+            <InputFieldWhite
+              placeholder={"Confirm Password"}
+              name="confirmPassword"
+              type="password"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+            />
             <InputFieldWhite
               placeholder={"Stream"}
               name="stream"

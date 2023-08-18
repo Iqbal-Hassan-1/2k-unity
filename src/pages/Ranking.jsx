@@ -14,10 +14,8 @@ import axios from "axios";
 const Ranking = () => {
   const { id } = useParams();
   console.log("params", id);
-
   const [localUser, setLocalUser] = useState("");
   const [user, setUser] = useState("");
-
   console.log(localUser);
   useEffect(() => {
     const getUser = localStorage.getItem("user");
@@ -40,7 +38,7 @@ const Ranking = () => {
       };
       fetchData();
     }
-  }, []);
+  }, [id]);
 
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
@@ -99,11 +97,27 @@ const Ranking = () => {
     <Container fluid className={style.mainDiv}>
       <Row>
         <Col className={style.forImage} md={12}>
-          {localUser?.cover === "profile.jpg" ? (
+          {id ? (
+            user?.cover === "profile.jpg" ? (
+              <img src={basketBall} alt="cover " />
+            ) : (
+              <img src={`${IMG_URL}${localUser?.cover}`} alt="cover" />
+            )
+          ) : (
+            <img
+              src={
+                localUser?.cover === "profile.jpg"
+                  ? basketBall
+                  : `${IMG_URL}${localUser?.cover}`
+              }
+              alt="cover player"
+            />
+          )}
+          {/* {localUser?.cover === "profile.jpg" ? (
             <img src={basketBall} alt="basktet" />
           ) : (
             <img src={`${IMG_URL}${localUser?.cover}`} alt="basktet" />
-          )}
+          )} */}
           {!id && (
             <div className={style.childDiv}>
               <label className="upload-label" htmlFor="file-upload">
@@ -119,11 +133,33 @@ const Ranking = () => {
           )}
         </Col>
         <Col md={{ offset: 1, span: 2 }} className={style.forPlayer}>
-          {localUser?.profile === "profile.jpg" ? (
+          {id ? (
+            user?.profile === "profile.jpg" ? (
+              <img
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80"
+                alt="profile player"
+              />
+            ) : (
+              <img
+                src={`${IMG_URL}${localUser?.profile}`}
+                alt="profile player"
+              />
+            )
+          ) : (
+            <img
+              src={
+                localUser?.profile === "profile.jpg"
+                  ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbjKo7c7BxLFeAj9oOg40sA1-lWsg1Rr1j9w&usqp=CAU"
+                  : `${IMG_URL}${localUser?.profile}`
+              }
+              alt="profile player"
+            />
+          )}
+          {/* {localUser?.profile === "profile.jpg" ? (
             <img src={player} alt="profile player" />
           ) : (
             <img src={`${IMG_URL}${localUser?.profile}`} alt="profile player" />
-          )}
+          )} */}
           {/* <img src={player} alt="profile" /> */}
           {!id && (
             <div className={style.childplayer}>
@@ -219,10 +255,11 @@ const Ranking = () => {
               <p className="mb-0 text-secondary fw-bold">Previous Upload</p>
               <div className="d-flex gap-5">
                 <img
-                  src={player}
+                  src="https://cdn.vox-cdn.com/thumbor/X_vwN1DrMO9sJWZdRnuFc6Hlr24=/0x547:3160x2654/1400x1400/filters:focal(0x547:3160x2654):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/47515291/usa-today-8390044.0.jpg"
                   style={{
                     width: "100px",
                     height: "100px",
+                    objectFit: "cover",
                     border: "1px solid black",
                   }}
                 />
@@ -243,10 +280,11 @@ const Ranking = () => {
                   }}
                 />
                 <img
-                  src={player}
+                  src="https://cdn.vox-cdn.com/thumbor/X_vwN1DrMO9sJWZdRnuFc6Hlr24=/0x547:3160x2654/1400x1400/filters:focal(0x547:3160x2654):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/47515291/usa-today-8390044.0.jpg"
                   style={{
                     width: "100px",
                     height: "100px",
+                    objectFit: "cover",
                     border: "1px solid black",
                   }}
                 />
