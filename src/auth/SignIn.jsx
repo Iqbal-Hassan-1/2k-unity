@@ -9,6 +9,7 @@ import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import Loader from "../component/Loader";
+import { BASE_URL } from "../constant";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,10 +24,7 @@ const SignIn = () => {
     setIsLoading(true);
     try {
       const formData = { email, password };
-      const response = await axios.post(
-        "https://nutty-dove-earmuffs.cyclic.app/api/auth/login",
-        formData
-      );
+      const response = await axios.post(`${BASE_URL}auth/login`, formData);
       let user = response.data.user;
       if (response.data.status === 1) {
         localStorage.setItem("token", response.data.token);

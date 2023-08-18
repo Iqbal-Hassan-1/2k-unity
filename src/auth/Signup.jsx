@@ -7,6 +7,7 @@ import InputFieldWhite from "../component/InputField/InputFieldWhite";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { BASE_URL } from "../constant";
 const Signup = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -43,10 +44,7 @@ const Signup = () => {
     }
     setIsLoading(true);
     try {
-      const response = await axios.post(
-        "https://nutty-dove-earmuffs.cyclic.app/api/auth/signup",
-        formData
-      );
+      const response = await axios.post(`${BASE_URL}auth/signup`, formData);
       toast.success("User Create Successfully");
       setIsLoading(false);
       navigate("/sign-in");
