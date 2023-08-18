@@ -1,6 +1,6 @@
 .divleader {
   height: 90vh;
-  background: url("../assets/bg-leader.png") no-repeat center center fixed;
+  background: url("../assets/bg-create-team.png") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -8,10 +8,10 @@
   background-position: 20% 20%;
 }
 .tableclass thead th {
-  background-color: #36a7ea;
+  background-color: var(--main-color);
   border-bottom: none;
   text-align: center;
-  color: white;
+  color: #000;
 }
 .tableclass tbody td {
   background-color: #78a6d4;
@@ -23,6 +23,9 @@
 }
 .classInput {
   border-radius: 0px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset !important;
 }
 .divSearch button {
   width: 100% !important;
@@ -37,7 +40,7 @@
 .leaderColor {
   position: relative;
   display: inline-block;
-  color: white;
+  color: #000;
   z-index: 9;
 }
 
@@ -49,7 +52,7 @@
   width: calc(100% + 40px); /* Adjust the width to cover the text width */
   height: 100%;
   background-color: var(--main-color);
-  color: white !important;
+  color: #000 !important;
   /* Adjust the background color */
   transform: skew(-15deg); /* Adjust the skew angle as needed */
   transform-origin: 0 0; /* Set the origin of skew */
@@ -58,7 +61,7 @@
 .recColor {
   position: relative;
   display: inline-block;
-  color: white;
+  color: #000;
   font-weight: 700;
   z-index: 9;
 }

@@ -5,6 +5,8 @@ import InputField from "../component/InputField/InputField";
 import { BiRightArrowAlt } from "react-icons/bi";
 import InputFieldWhite from "../component/InputField/InputFieldWhite";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const Signup = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -22,6 +24,8 @@ const Signup = () => {
     height: "",
     country: "",
   });
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e, fieldName) => {
     const { value } = e.target;
@@ -33,13 +37,18 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const response = await axios.post(
         "https://nutty-dove-earmuffs.cyclic.app/api/auth/signup",
         formData
       );
+      toast.success("User Create Successfully");
+      setIsLoading(false);
+      navigate("/sign-in");
       console.log("Response:", response.data);
     } catch (error) {
+      toast.error(error.msg);
       console.error("Error:", error);
     }
   };
@@ -261,7 +270,13 @@ const Signup = () => {
                 disabled={isSignup}
                 // onClick={() => handleNext(0)}
               >
-                SIGNUP
+                {isLoading ? (
+                  <span>Loading...</span>
+                ) : (
+                  <span>
+                    Signup <BiRightArrowAlt size={25} />
+                  </span>
+                )}
               </Button>
             </div>{" "}
           </Col>

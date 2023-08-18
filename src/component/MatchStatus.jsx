@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import style from "./leaders.module.css";
-import avatar from "../assets/player.png";
+import style from "./matchstatus.module.css";
 import { Button, Col, Container, Form, Row, Table } from "react-bootstrap";
 import axios from "axios";
-import { BASE_URL } from "../constant";
-import Loader from "../component/Loader";
 
-const Leaders = () => {
+const MatchStatus = () => {
   const [leaders, setLeaders] = useState([]);
   const [showParkWin, setShowParkWin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,20 +31,12 @@ const Leaders = () => {
       <Row className="d-flex justify-content-center">
         <Col sm={12} md={6} className={`mt-4 `}>
           <div className="text-center d-flex flex-column gap-3">
-            <h3 style={{ color: "white", fontWeight: "700" }}>
-              <span className={style.leaderColor}>LEADERS </span>
-              <span className="ps-4">ALL</span>
-            </h3>
-            <h3 style={{ color: "white", fontWeight: "700" }}>
-              <span
-                className={showParkWin ? style.recColor : style.leaderColor}
-              >
-                {showParkWin ? "REC" : "PARK"}
-              </span>
-              <span className="ps-4">WIN PERCENTAGE</span>
+            <h3 style={{ color: "#000", fontWeight: "700" }}>
+              <span className={style.leaderColor}>MATCH </span>
+              <span className="ps-4">STATUS</span>
             </h3>
           </div>
-          <Row className="d-flex align-items-center mb-3">
+          <Row className="d-flex align-items-center justify-content-center my-3">
             <Col md={6}>
               <Form.Control
                 type="text"
@@ -55,26 +44,21 @@ const Leaders = () => {
                 className={style.classInput}
               />
             </Col>
-            <Col className={style.divSearch}>
+            <Col className={style.divSearch} md={3}>
               <Button>Search</Button>
-            </Col>
-            <Col className={style.divWin}>
-              {showParkWin ? (
-                <Button onClick={toggleButton}>Park Win</Button>
-              ) : (
-                <Button onClick={toggleButton}>Rec Win</Button>
-              )}
             </Col>
           </Row>
           <Table className={style.tableclass} responsive>
             <thead>
               <tr>
-                <th>Ranking</th>
-                <th>Player Name</th>
-                <th>Win Percentage</th>
+                <th>Match Type</th>
+                <th>Player / Team Name</th>
+                <th>Payment</th>
+                <th>Status</th>
               </tr>
             </thead>
-            <tbody>
+
+            {/* <tbody>
               {isLoading ? ( // Check if data is loading
                 <tr>
                   <td colSpan="3">
@@ -117,7 +101,7 @@ const Leaders = () => {
                   <td></td>
                 </tr>
               )}
-            </tbody>
+            </tbody> */}
           </Table>
         </Col>
       </Row>
@@ -125,4 +109,4 @@ const Leaders = () => {
   );
 };
 
-export default Leaders;
+export default MatchStatus;

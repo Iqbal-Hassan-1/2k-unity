@@ -1,0 +1,20 @@
+.maingroupclass {
+  padding: 0px 10px;
+  height: 60vh;
+  margin: 10vh 0 10vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+/* for scrollbar  */
+.maingroupclass::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.maingroupclass::-webkit-scrollbar-track {
+  background: #ffff;
+}
+
+.maingroupclass::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+}

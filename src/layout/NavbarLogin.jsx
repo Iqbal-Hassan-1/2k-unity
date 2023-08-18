@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import style from "./navbarlogin.module.css";
-import kLogo from "../assets/2k-logo.png";
+import kLogo from "../assets/2k-2-logo.png";
 import { MdClose, MdMenu, MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 import Dropdown from "../component/Dropdown";
@@ -101,6 +101,15 @@ function NavbarLogin() {
               onClick={closeMobileMenu}
             >
               Create Match
+            </NavLink>
+          </li>
+          <li className={style.navItemm}>
+            <NavLink
+              to="players"
+              className={style.navLinkss}
+              onClick={closeMobileMenu}
+            >
+              Players
             </NavLink>
           </li>
 

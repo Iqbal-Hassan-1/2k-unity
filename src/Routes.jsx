@@ -13,6 +13,8 @@ import Chat from "./component/chat/Chat";
 import Protected from "./Protected";
 import { createBrowserRouter } from "react-router-dom";
 import Leaders from "./pages/Leaders";
+import MatchStatus from "./component/MatchStatus";
+import Players from "./pages/Players";
 
 export const router = createBrowserRouter([
   {
@@ -66,8 +68,20 @@ export const router = createBrowserRouter([
         element: <CreateTeam />,
       },
       {
+        path: "/nav-rank/players",
+        element: <Players />,
+      },
+      {
+        path: "/nav-rank/match-status",
+        element: <MatchStatus />,
+      },
+      {
         path: "/nav-rank/chat",
         element: <Chat />,
+      },
+      {
+        path: "/nav-rank/player/:id",
+        element: <Ranking />,
       },
     ],
   },

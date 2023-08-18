@@ -6,30 +6,153 @@ import player from "../assets/player.png";
 import ChatIcon from "../component/chat/ChatIcon";
 import UploadRecord from "../component/UploadRecord";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate, useParams } from "react-router-dom";
+import { MdEdit, MdFileUpload } from "react-icons/md";
+import { BASE_URL, IMG_URL } from "../constant";
+import axios from "axios";
 
 const Ranking = () => {
-  const { user } = useAuth();
-  console.log(user);
+  const { id } = useParams();
+  console.log("params", id);
+
+  const [localUser, setLocalUser] = useState("");
+  const [user, setUser] = useState("");
+
+  console.log(localUser);
+  useEffect(() => {
+    const getUser = localStorage.getItem("user");
+    const user = JSON.parse(getUser);
+    setLocalUser(user);
+  }, []);
+  useEffect(() => {
+    if (id) {
+      const fetchData = async () => {
+        try {
+          // setIsLoading(true);
+          const response = await axios.get(`${BASE_URL}users/${id}`);
+          // setLeaders(response.data.leadership);
+          setUser(response.data.user);
+          console.log(response.data.user);
+          // setIsLoading(false);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      fetchData();
+    }
+  }, []);
+
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+  const authToken = localStorage.getItem("token");
+
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    console.log(selectedFile);
+    if (selectedFile) {
+      const formData = new FormData();
+      formData.append("file", selectedFile);
+      axios
+        .post(`${BASE_URL}users/coverimage`, formData, {
+          headers: {
+            Authorization: authToken,
+          },
+        })
+        .then((response) => {
+          setLocalUser(response.data.user);
+          localStorage.setItem("user", JSON.stringify(response.data.user));
+          console.log("File uploaded successfully!", response.data);
+        })
+        .catch((error) => {
+          console.error("Error uploading file:", error);
+        });
+    } else {
+      console.warn("No file selected.");
+    }
+  };
+  const handleProfileChange = (event) => {
+    const file = event.target.files[0];
+    console.log(file);
+    if (file) {
+      const formData = new FormData();
+      formData.append("file", file);
+      axios
+        .post(`${BASE_URL}users/profileImage`, formData, {
+          headers: {
+            Authorization: authToken,
+          },
+        })
+        .then((response) => {
+          setLocalUser(response.data.user);
+          localStorage.setItem("user", JSON.stringify(response.data.user));
+          console.log("profile uploaded successfully!", response.data);
+        })
+        .catch((error) => {
+          console.error("Error uploading file:", error);
+        });
+    } else {
+      console.warn("No file selected.");
+    }
+  };
 
   return (
     <Container fluid className={style.mainDiv}>
       <Row>
         <Col className={style.forImage} md={12}>
-          <img src={basketBall} alt="basktet" />
+          {localUser?.cover === "profile.jpg" ? (
+            <img src={basketBall} alt="basktet" />
+          ) : (
+            <img src={`${IMG_URL}${localUser?.cover}`} alt="basktet" />
+          )}
+          {!id && (
+            <div className={style.childDiv}>
+              <label className="upload-label" htmlFor="file-upload">
+                <MdEdit size={30} style={{ color: "var(--main-color)" }} />
+              </label>
+              <input
+                id="file-upload"
+                type="file"
+                style={{ display: "none" }}
+                onChange={handleFileChange}
+              />
+            </div>
+          )}
         </Col>
         <Col md={{ offset: 1, span: 2 }} className={style.forPlayer}>
-          <img src={player} alt="profile" />
+          {localUser?.profile === "profile.jpg" ? (
+            <img src={player} alt="profile player" />
+          ) : (
+            <img src={`${IMG_URL}${localUser?.profile}`} alt="profile player" />
+          )}
+          {/* <img src={player} alt="profile" /> */}
+          {!id && (
+            <div className={style.childplayer}>
+              <label className="upload-label" htmlFor="profile-upload">
+                <MdEdit size={25} style={{ color: "var(--main-color)" }} />
+              </label>
+              <input
+                id="profile-upload"
+                type="file"
+                style={{ display: "none" }}
+                onChange={handleProfileChange}
+              />
+            </div>
+          )}
         </Col>
-        <Col md={{ offset: 3, span: 6 }} className="pt-1 ">
+        <Col md={{ offset: 3, span: 6 }} className="py-2">
           <div className="d-flex align-items-center gap-3">
-            <h4 className="fw-bold">{user?.username}</h4>
-            <button className="px-4 py-2 bg-primary text-white border-0 fw-bold user">
+            <h4 className="fw-bold">
+              {id ? user?.username : localUser?.username}
+            </h4>
+            <button
+              className="px-4 py-2 bg-primary text-white border-0 fw-bold user"
+              disabled={!id}
+            >
               Message User
             </button>
           </div>
 
-          <div className="d-flex align-items-center gap-3 pt-1">
+          <div className="d-flex align-items-center gap-3 py-2">
             <button className="px-4 py-1 border-0">1234567</button>
             <button className="border-0 px-4 py-1" style={{ color: "red" }}>
               Copy Referal code
@@ -41,11 +164,21 @@ const Ranking = () => {
               <p className="mb-0 text-secondary">Height</p>
               <p className="mb-0 text-secondary">Position</p>
             </Col>
+
             <Col md={4}>
-              {" "}
-              <p className="mb-0">{user?.archtype}</p>
-              <p className="mb-0">{user?.height}</p>
-              <p className="mb-0">{user?.position}</p>
+              {id ? (
+                <>
+                  <p className="mb-0">{user?.archtype}</p>
+                  <p className="mb-0">{user?.height}</p>
+                  <p className="mb-0">{user?.position}</p>
+                </>
+              ) : (
+                <>
+                  <p className="mb-0">{localUser?.archtype}</p>
+                  <p className="mb-0">{localUser?.height}</p>
+                  <p className="mb-0">{localUser?.position}</p>
+                </>
+              )}
             </Col>
           </Row>
           <Row className="d-flex gap-2 px-1 pt-1">
@@ -125,22 +258,31 @@ const Ranking = () => {
           className="d-flex flex-column gap-3 pt-5"
           md={{ offset: 1, span: 2 }}
         >
-          <button className={`p-2 ${style.matchButton}`}>Setup a Match</button>
-          <button className={`p-2 bg-primary  ${style.prevButton}`}>
-            Previous Match
-          </button>
-          <button
-            className={`p-2 ${style.uploadButton}`}
-            type="button"
-            onClick={() => setShow(true)}
-          >
-            Upload Record
-          </button>
+          {!id && (
+            <>
+              <button className={`p-2 ${style.matchButton}`}>
+                Setup a Match
+              </button>
+              <button
+                className={`p-2 bg-primary  ${style.prevButton}`}
+                onClick={() => navigate("/nav-rank/match-status")}
+              >
+                Previous Match
+              </button>
+              <button
+                className={`p-2 ${style.uploadButton}`}
+                type="button"
+                onClick={() => setShow(true)}
+              >
+                Upload Record
+              </button>
+            </>
+          )}
         </Col>
       </Row>
       {show && <UploadRecord show={show} setShow={setShow} />}
 
-      <ChatIcon />
+      {!id && <ChatIcon />}
 
       {/* <ChatIcon /> */}
     </Container>

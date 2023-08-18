@@ -1,0 +1,42 @@
+.playercard {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  flex-direction: column;
+  border-radius: 1px;
+  background-color: #feede5 !important;
+  background-clip: border-box;
+  color: #ffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.playercard-header {
+  position: relative;
+  margin: -80px auto 10px; /* Adjust margin to move the circle upwards */
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #feede5;
+  background-clip: border-box;
+  color: #000;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.playercard-header img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+}
+.playercard-content {
+  padding: 4px;
+  margin-top: 0px;
+}
+.playercard-title {
+  text-align: center;
+  color: #000;
+
+  font-size: 1rem;
+  font-weight: 700;
+}

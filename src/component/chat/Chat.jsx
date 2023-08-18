@@ -3,13 +3,17 @@ import style from "./chat.module.css";
 import { BsFillSendFill } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import axios from "axios";
+import Group from "./Group";
 import { BASE_URL } from "../../constant";
+import ChatRoom from "./ChatRoom";
 
 // INSIDE CHAT FUNCTION START FROM HERE
-function ChatRoom() {
-  const dummy = useRef();
-  const [formValue, setFormValue] = useState("");
-  const [messages, setMessages] = useState([]);
+
+// INSIDE CHAT MESSAGE FUNCTION START FROM HERE
+
+const Chat = ({ setIsChat }) => {
+  const [users, setUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       const userToken = localStorage.getItem("token");
@@ -21,7 +25,8 @@ function ChatRoom() {
           },
         });
         // set(response.data.leadership);
-        console.log("message", response.data);
+        setUsers(response.data.conversations);
+        console.log("message", response.data.conversations);
       } catch (err) {
         console.log(err);
       }
@@ -30,72 +35,6 @@ function ChatRoom() {
     fetchData();
   }, []);
 
-  const sendMessage = (data) => {
-    data.preventDefault();
-    const newMessage = {
-      id: messages.length + 1,
-      msg: formValue,
-    };
-
-    // Update the messages array with the new message
-    setMessages([...messages, newMessage]);
-
-    setFormValue("");
-
-    // Use a setTimeout to ensure that the scrollIntoView runs after the state update
-    setTimeout(() => {
-      dummy.current.scrollIntoView({ behavior: "smooth", block: "end" });
-    }, 0);
-    setFormValue("");
-  };
-
-  return (
-    <>
-      <main className={style.mainclass}>
-        {messages &&
-          messages?.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
-        <span ref={dummy}></span>
-        <form onSubmit={sendMessage} className={style.formclass}>
-          <div className={style.inputContainer}>
-            <input
-              value={formValue}
-              className={style.inputclass}
-              onChange={(e) => setFormValue(e.target.value)}
-              placeholder="Type your message.."
-            />
-            <button
-              type="submit"
-              disabled={!formValue}
-              className={style.buttonclass}
-            >
-              <BsFillSendFill style={{ color: "var(--main-color)" }} />
-            </button>
-          </div>
-        </form>
-      </main>
-    </>
-  );
-}
-// INSIDE CHAT MESSAGE FUNCTION START FROM HERE
-function ChatMessage(props) {
-  const { msg, id } = props.message;
-  const isSentMessage = id % 2 === 0; // Example condition to differentiate sent and received messages
-
-  const messageClass = isSentMessage ? style.sent : style.received;
-
-  return (
-    <div className={`${style.message} ${messageClass}`}>
-      <img
-        src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp"
-        className="rounded-circle mb-3"
-        style={{ width: "50px" }}
-        alt="Avatar"
-      />
-      <p className={style.pclass}>{msg}</p>
-    </div>
-  );
-}
-const Chat = ({ setIsChat }) => {
   return (
     <div className={style.maindiv}>
       <header
@@ -109,7 +48,15 @@ const Chat = ({ setIsChat }) => {
           onClick={() => setIsChat(false)}
         />
       </header>
-      <ChatRoom />
+
+      {selectedUser === null ? (
+        <Group users={users} setSelectedUser={setSelectedUser} />
+      ) : (
+        <ChatRoom
+          selectedUser={selectedUser}
+          setSelectedUser={setSelectedUser}
+        />
+      )}
     </div>
   );
 };
