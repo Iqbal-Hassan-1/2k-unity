@@ -1,5 +1,6 @@
 .divpayment {
-  height: 90vh;
+  /* height: 90vh; */
+  height: 100%;
   background-image: url("../assets/Payment.png");
   background-position: 20% 70%;
   background-repeat: no-repeat;

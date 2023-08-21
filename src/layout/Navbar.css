@@ -1,11 +1,11 @@
 .navbar {
   background-image: url("../assets/bg-signup.png");
   background-position: 5% 10%;
-  height: 80px;
+  height: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .navbar-logo {
@@ -46,7 +46,7 @@
 .nav-links {
   color: #fff;
   text-decoration: none;
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 2rem;
   font-weight: 600;
   border-left: 2px solid white;
   transform: skew(-21deg);
@@ -151,9 +151,5 @@
     background: #fff;
     color: #1888ff;
     transition: 250ms;
-  }
-
-  button {
-    display: none;
   }
 }

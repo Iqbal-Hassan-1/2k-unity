@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { BiRightArrowAlt } from "react-icons/bi";
 import style from "./createteam.module.css";
-import InputFieldWhite from "../component/InputField/InputFieldWhite";
+import { InputFieldWhite } from "../component/Index";
 import Select from "../component/Select/Select";
 
 const CreateTeam = () => {

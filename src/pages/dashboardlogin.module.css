@@ -1,0 +1,6 @@
+.mainNav {
+  height: 100px;
+}
+.mainpage {
+  height: calc(100vh - 100px);
+}

@@ -1,5 +1,6 @@
 .navbarlogin {
-  height: 80px;
+  /* height: 100px; */
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,11 +8,19 @@
 }
 .navbarLogo {
   color: #fff;
-  justify-self: start;
-  margin-left: 20px;
+  justify-self: end;
+  display: flex;
+  margin-left: 50px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 2rem;
+  /* font-size: 2rem; */
+}
+.navbarLogo img {
+  width: 100%;
+  height: 70px;
+  object-fit: cover;
+  margin-top: 10px;
+  /* background-color: red; */
 }
 .navMenuu {
   display: grid;
@@ -51,7 +60,30 @@
 .menuIcon {
   display: none;
 }
+.navLogout {
+  background: var(--main-color);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 3rem;
+  font-weight: 600;
+  border-left: 2px solid white;
+  transform: skew(-10deg);
+}
+
+.navLogout:hover {
+  background: var(--main-color);
+  border: none;
+  cursor: pointer;
+  transform: skew(-10deg);
+}
 @media screen and (max-width: 960px) {
+  .navbarLogo img {
+    width: 100%;
+    height: 50px;
+    object-fit: cover;
+    margin-top: 5px;
+    /* background-color: red; */
+  }
   .navItemm {
     position: relative;
   }
@@ -69,7 +101,7 @@
   }
 
   .navMenuu.activee {
-    background: lightblue;
+    background: rgb(252, 252, 255);
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
@@ -129,20 +161,16 @@
     color: #1888ff;
     transition: 250ms;
   }
-}
-.navLogout {
-  background: var(--main-color);
-  color: #fff;
-  text-decoration: none;
-  padding: 0.5rem 3rem;
-  font-weight: 600;
-  border-left: 2px solid white;
-  transform: skew(-10deg);
-}
-
-.navLogout:hover {
-  background: var(--main-color);
-  border: none;
-  cursor: pointer;
-  transform: skew(-10deg);
+  .navLogout {
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
+    margin: 2rem auto;
+    border-radius: 4px;
+    width: 40%;
+    background: #1888ff;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+  }
 }

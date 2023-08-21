@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import InputField from "../component/InputField/InputField";
+import { InputField, Paypal } from "../component/Index";
 import paypalImage from "../assets/pay-pal.png";
 import style from "./payment.module.css";
-import Paypal from "../component/Paypal";
 const Payment = () => {
   const [checkout, setCheckout] = useState(false);
   return (

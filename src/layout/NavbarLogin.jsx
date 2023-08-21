@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import style from "./navbarlogin.module.css";
-import kLogo from "../assets/2k-2-logo.png";
+import kLogo from "../assets/2k-logo-white.png";
 import { MdClose, MdMenu, MdOutlineKeyboardArrowDown } from "react-icons/md";
 
-import Dropdown from "../component/Dropdown";
+import { NotificationList } from "../component/Index";
 import { useAuth } from "../context/AuthContext";
 
 function NavbarLogin() {
@@ -39,11 +39,11 @@ function NavbarLogin() {
     <>
       <nav className={style.navbarlogin}>
         <NavLink
-          to="/nav-rank"
-          className={`mb-3 ${style.navbarLogo}`}
+          to="/nav-rank/ranking"
+          className={`${style.navbarLogo}`}
           onClick={closeMobileMenu}
         >
-          {/* <img src={kLogo} alt="logo" /> */}
+          <img src={kLogo} alt="logo" />
         </NavLink>
 
         <div className={style.menuIcon} onClick={handleClick}>
@@ -83,7 +83,7 @@ function NavbarLogin() {
             >
               Notification <MdOutlineKeyboardArrowDown size={25} />
             </NavLink>
-            {dropdown && <Dropdown />}
+            {dropdown && <NotificationList />}
           </li>
           {/* <li className={style.navItemm}>
             <NavLink

@@ -1,5 +1,6 @@
 .signupdiv {
-  height: 90vh;
+  /* height: 90vh; */
+  height: 100%;
   background-image: url("../assets/bg-signup1.png");
   background-position: 30% 99%;
   background-repeat: no-repeat;

@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import style from "./signin.module.css";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import InputField from "../component/InputField/InputField";
+import { InputField, Loader } from "../component/Index";
 import { BiRightArrowAlt } from "react-icons/bi";
 // import ball from "../assets/basket-ball.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
-import Loader from "../component/Loader";
 import { BASE_URL } from "../constant";
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -49,7 +48,7 @@ const SignIn = () => {
       <Container fluid className={style.divcontainer}>
         <Row>
           <Col
-            xs={{ offset: 2, span: 8 }}
+            xs={{ offset: 0, span: 12 }}
             sm={{ offset: 3, span: 6 }}
             md={{ offset: 3, span: 6 }}
             lg={{ offset: 8, span: 3 }}

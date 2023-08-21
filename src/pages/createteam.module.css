@@ -1,5 +1,7 @@
 .divcontainer {
-  height: 90vh;
+  /* height: 90vh; */
+  height: 100%;
+
   background-image: url("../assets/bg-create-team.png");
   background-position: 30% 30%;
   background-repeat: no-repeat;

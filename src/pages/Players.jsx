@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import style from "./players.module.css";
-import PlayerCard from "../component/PlayerCard/PlayerCard";
+import { PlayerCard } from "../component/Index";
 import axios from "axios";
 import { BASE_URL } from "../constant";
 
@@ -56,7 +56,7 @@ const Players = () => {
             <span className="visually-hidden">Loading...</span>
           </div>
         ) : (
-          <Col md={8} className="d-flex gap-4 flex-wrap">
+          <Col xs={10} md={8} className="d-flex gap-4 flex-wrap">
             {players?.length > 0 &&
               players.map((player, index) => {
                 return (

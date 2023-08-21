@@ -1,5 +1,6 @@
 .mainDiv {
-  height: 90vh;
+  /* height: 90vh; */
+  height: 100%;
 }
 .forImage {
   position: relative;
@@ -91,4 +92,7 @@
   color: #ffff;
 }
 @media screen and (max-width: 960px) {
+  .childplayer {
+    left: 80%;
+  }
 }

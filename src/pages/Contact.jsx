@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import InputField from "../component/InputField/InputField";
+import { InputField } from "../component/Index";
 import { BiRightArrowAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import style from "./contact.module.css";

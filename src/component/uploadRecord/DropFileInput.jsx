@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import "./drop-file-input.css";
-import uploadImg from "../assets/cloud.png";
-import { ImageConfig } from "../config/ImageConfig";
+import uploadImg from "../../assets/cloud.png";
+import { ImageConfig } from "../../config/ImageConfig";
 import { Button } from "react-bootstrap";
 
 const DropFileInput = (props) => {

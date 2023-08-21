@@ -4,7 +4,7 @@ import avatar from "../assets/player.png";
 import { Button, Col, Container, Form, Row, Table } from "react-bootstrap";
 import axios from "axios";
 import { BASE_URL } from "../constant";
-import Loader from "../component/Loader";
+import { Loader } from "../component/Index";
 
 const Leaders = () => {
   const [leaders, setLeaders] = useState([]);

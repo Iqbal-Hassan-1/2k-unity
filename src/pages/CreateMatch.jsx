@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { BiRightArrowAlt } from "react-icons/bi";
 import style from "./creatematch.module.css";
-import InputFieldWhite from "../component/InputField/InputFieldWhite";
+import { InputFieldWhite } from "../component/Index";
 import Select from "../component/Select/Select";
 
 const CreateMatch = () => {
@@ -16,8 +16,8 @@ const CreateMatch = () => {
     <Container fluid className={style.divcontainer}>
       <Row>
         <Col
-          xs={{ offset: 2, span: 8 }}
-          sm={{ offset: 3, span: 6 }}
+          xs={{ offset: 1, span: 10 }}
+          sm={{ offset: 2, span: 8 }}
           md={{ offset: 1, span: 6 }}
           lg={{ offset: 1, span: 3 }}
           className={`text-white bg-white mt-2 px-5 py-3 ${style.forShadow}`}

@@ -1,0 +1,6 @@
+.mainNavbar {
+  height: 80px;
+}
+.maindiv {
+  height: calc(100vh - 80px);
+}
